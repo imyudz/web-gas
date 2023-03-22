@@ -6,82 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    
     <title>Teste Dashboard do Gás</title>
 </head>
 <body>
     <h1>Dashboard AppGas Datawake Home</h1>
     
-    <div id="main" style="width: 600px;height:400px;"></div>
-    <script type="text/javascript">
-
-        var chartDom = document.getElementById('main');
-        var myChart = echarts.init(chartDom, 'dark');
-        var option;
-        option = {
-            title: {
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                data: ['Gás 1', 'Gás 2', 'Gás 3', 'Gás 4', 'Search Engine']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true,
-            },
-            toolbox: {
-                feature: {
-                saveAsImage: {}
-                }
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                    name: 'Gás 1',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [120, 132, 101, 134, 90, 230, 210, 15 ,22, 400, 250]
-                },
-                {
-                    name: 'Gás 2',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [220, 182, 191, 234, 290, 330, 310, 1500, 1300, 1450, 1400]
-                },
-                {
-                    name: 'Gás 3',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [150, 232, 201, 154, 190, 330, 410, 200, 563, 200, 340, ]
-                },
-                {
-                    name: 'Gás 4',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [320, 332, 301, 334, 390, 330, 320, 0, 200]
-                },
-                {
-                    name: 'Search Engine',
-                    type: 'line',
-                    stack: 'Total',
-                    data: [820, 932, 901, 934, 1290, 1330, 1320]
-                }
-                ]
-            };
-
-            option && myChart.setOption(option);
-    </script>
+    <div id="main" style="width: 600px;height:400px;">
+    </div>
 </body>
-    <script src="script.js"></script>
-    
+    <script src="grafico.js"></script>
 </html>
