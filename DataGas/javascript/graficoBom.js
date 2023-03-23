@@ -6,6 +6,7 @@ const colorsDark = ['rgba(255, 160, 30, 1)', 'rgba(50, 164, 255, 1)', 'rgba(46,2
 const colorsLight = [];
 
 option = {
+  color: colorsDark,
   toolbox: {
     top: 30,
     show: true,
@@ -37,9 +38,9 @@ option = {
         alignWithLabel: true
       },
       axisLine: {
-        // lineStyle: {
-        //   color: colors[1]
-        // }
+        lineStyle: {
+        color: colorsDark[1]
+        }
       },
       data: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
     },
@@ -48,12 +49,13 @@ option = {
     {
       type: 'value',
       axisLabel: {
-        formatter: '{value} KG'
+        formatter: '{value} %'
       }
     }
   ],
   series: [
     {
+      color: colorsDark[1],
       name: 'Gás 1',
       type: 'line',
       markPoint: {
@@ -66,7 +68,7 @@ option = {
         focus: 'series'
       },
       data: [
-        2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
+        15, 8, 5, 10, 11, 15, 10, 9, 5, 5, 2, 5
       ]
     },
     {
@@ -81,9 +83,11 @@ option = {
       emphasis: {
         focus: 'series'
       },
+      /*
       data: [
         3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7
       ]
+      */
     },
     {
       name: 'Gás 3',
@@ -97,9 +101,11 @@ option = {
       emphasis: {
         focus: 'series'
       },
+      /*
       data: [
         2.9, 4.9, 10.1, 45.7, 0, 220, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7
       ]
+      */
     },
   ]
 };
