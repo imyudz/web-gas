@@ -14,6 +14,7 @@ h3{
 #card{
     font-family: 'Exo Medium', sans-serif;
 }
+/*
 .gas{
     margin-top: 2%;
     border-radius: 10px;
@@ -62,6 +63,7 @@ h3{
 .retangulo{
     border-color: aqua;
 }
+*/
 
 .botao-tema{
     display: flex;
@@ -72,7 +74,7 @@ h3{
     display: flex;
     justify-content: center;
     width: 50px;
-    height: 170px;
+    height: 360px;
     border: 2px solid rgb(255, 255, 255);
     position: relative;
 }
@@ -98,6 +100,32 @@ h3{
     margin-right: 0;
 }
 
+.okay{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#tique-verde{
+    margin-left: 2%;
+}
+
+.ok{
+    margin-left: 6%;
+}
+
+.status{
+    text-align: center;
+}
+
+.containerss{
+    display: flex;
+    justify-content: center;
+}
+
+#card{
+    margin-left: 5%;
+}
+
 @media screen and (min-width: 400px) {
     #grafico-bom{
         height: 400px;
@@ -118,6 +146,11 @@ h3{
         display: flex !important;
         justify-content: center !important;
     }
+    
+    #logo-dw{
+        width: 30%;
+    }
+    
     
 }
 
