@@ -14,56 +14,6 @@ h3{
 #card{
     font-family: 'Exo Medium', sans-serif;
 }
-/*
-.gas{
-    margin-top: 2%;
-    border-radius: 10px;
-    padding: 1%;
-    border-color: aliceblue;
-    margin-right: 2%;
-}
-
-.gas:hover{
-    border-color: rgb(250, 204, 2);
-    background-color: rgb(250, 204, 2);
-    transform: scale(1.1);
-    transition: all 0.5s;
-}
-
-.agua{
-    border-radius: 10px;
-    padding: 1%;
-    border-color: aliceblue;
-    margin-right: 2%;
-}
-
-.agua:hover{
-    border-color: rgb(250, 204, 2);
-    background-color: rgb(250, 204, 2);
-    transform: scale(1.1);
-    transition: all 0.5s;
-
-}
-
-.energia{
-    border-radius: 10px;
-    padding: 1%;
-    border-color: aliceblue;
-
-}
-
-.energia:hover{
-    border-color: rgb(250, 204, 2);
-    background-color: rgb(250, 204, 2);
-    transform: scale(1.1);
-    transition: all 0.5s;
-
-}
-
-.retangulo{
-    border-color: aqua;
-}
-*/
 
 .botao-tema{
     display: flex;
@@ -71,11 +21,12 @@ h3{
 }
 
 .nivel-tanque{
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     width: 50px;
     height: 360px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     position: relative;
 }
 
@@ -125,6 +76,8 @@ h3{
 #card{
     margin-left: 5%;
 }
+
+
 
 @media screen and (min-width: 400px) {
     #grafico-bom{
