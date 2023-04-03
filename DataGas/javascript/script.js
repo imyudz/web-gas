@@ -1,5 +1,6 @@
 
 var nivel = null;
+var dados = [];
 function loadData(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "http://localhost:8080/data-gas");
@@ -13,12 +14,15 @@ function loadData(){
             return new Date(b.registrationDate) - new Date(a.registrationDate);
         });
         nivel = parseFloat(listaValores[0].dataGasValor);
-        var valoresTeste = [100, 98, 93, 67, 65, 61, 48, 40, 38, 23, 13, 3];
-        utilizarValor(nivel);
+        dados.push(nivel);
+        utilizarValor(nivel, dados);
+        console.log("dados: "+dados);
         var ultimoValor = 0;
         if(ultimoValor != nivel){
             ultimoValor = nivel;
         }
+        
+        
         
     });
 
@@ -28,7 +32,15 @@ loadData();
 
 console.log(nivel);
 
+//Atualizar página a cada 1 minuto
+var intervalo = 20000;
 
+function atualizarPagina(){
+  location.reload();
+}
+
+setTimeout(atualizarPagina, intervalo);
+//
 
 
 
@@ -44,7 +56,7 @@ var bordaCard = document.getElementById("card");
 
 
 
-function utilizarValor(valor){
+function utilizarValor(valor, valor2){
     var texto = document.querySelector(".texto");
     console.log(texto.textContent);
     texto.textContent += nivel + "%";
@@ -75,7 +87,7 @@ function utilizarValor(valor){
         bordaCard.className = "card card-sm border-danger";
     }
     
-}
+
 
 
 var modoEscuro = true;
@@ -103,7 +115,7 @@ function alternarModo(){
 var right = 105;
 var mediab1 = document.querySelector(".mediab1");
 var calculoMedia;
-var valores = [2, 1.2, 0.7, 0.5, 1.2, 1.5, 0.7, 0.3, 1.8, 2.2, 2, 1.8, 1.9, 0.9, 1, 1.1, 0.8, 1.2, 0.3, 0.4, 0.4, 0.3, 0.2, 0.2, 0.7, 0.9, 1.2, 1.4, 1.2, 1];
+var valores = [1, 1.2, 0.7, 0.5, 1.2, 1.5, 0.7, 0.3, 1.8, 2.2, 2, 1.8, 1.9, 0.9, 1, 1.1, 0.8, 1.2, 0.3, 0.4, 0.4, 0.3, 0.2, 0.2, 0.7, 0.9, 1.2, 1.4, 1.2, 1];
 var soma = 0;
 for(var i = 0;i<valores.length; i++){
     soma+=valores[i];
@@ -172,7 +184,7 @@ option = {
         color: 'rgb(0, 0, 0)'
         }
       },
-      data: ['01/1', '02/1', '03/01', '04/01', '05/01', '06/01', '07/01', '08/01', '09/01', '10/01', '11/01', '12/01', '13/01', '14/01', '15/01', '16/01', '17/01', '18/01', '19/01', '20/01', '21/01', '22/01', '23/01', '24/01', '25/01', '26/01', '27/01', '28/01', '29/01', '30/01']
+      //data: ['01/1', '02/1', '03/01', '04/01', '05/01', '06/01', '07/01', '08/01', '09/01', '10/01', '11/01', '12/01', '13/01', '14/01', '15/01', '16/01', '17/01', '18/01', '19/01', '20/01', '21/01', '22/01', '23/01', '24/01', '25/01', '26/01', '27/01', '28/01', '29/01', '30/01']
     },
   ],
   
@@ -215,7 +227,7 @@ option = {
           }
         ])
       },
-      data: valores,
+      data: dados,
     },
     
     /*
@@ -249,4 +261,4 @@ option && myChart.setOption(option);
 
 
 
-
+}
