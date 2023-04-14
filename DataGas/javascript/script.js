@@ -1,6 +1,8 @@
 
-var nivel = null;
+var nivel;
 var dados = [];
+var ultimoValor;
+
 function loadData(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "http://localhost:8080/data-gas");
@@ -17,14 +19,23 @@ function loadData(){
         dados.push(nivel);
         utilizarValor(nivel, dados);
         console.log("dados: "+dados);
-        var ultimoValor = 0;
         if(ultimoValor != nivel){
             ultimoValor = nivel;
         }
-        
-        
+
+        if(nivel>=97){
+          dados = [];
+        }
         
     });
+
+    setInterval(function(){
+    xmlhttp.open("GET", "http://localhost:8080/data-gas");
+    xmlhttp.setRequestHeader("Cache-Control", "no-cache");
+    xmlhttp.setRequestHeader("Pragma", "no-cache");
+    xmlhttp.send();
+    
+    }, 10000);
 
 }
 
@@ -33,13 +44,13 @@ loadData();
 console.log(nivel);
 
 //Atualizar página a cada 1 minuto
-var intervalo = 20000;
+// var intervalo = 20000;
 
-function atualizarPagina(){
-  location.reload();
-}
+// function atualizarPagina(){
+//   location.reload();
+// }
 
-setTimeout(atualizarPagina, intervalo);
+// setTimeout(atualizarPagina, intervalo);
 //
 
 
@@ -56,13 +67,14 @@ var bordaCard = document.getElementById("card");
 
 
 
-function utilizarValor(valor, valor2){
+function utilizarValor(nivelF, dadosF){
     var texto = document.querySelector(".texto");
     console.log(texto.textContent);
-    texto.textContent += nivel + "%";
+    texto.innerHTML = "Quantidade do botijão atual: ";
+    texto.textContent += nivelF + "%";
     var btnOkelement = document.getElementById("okelement");
     var level = document.querySelector(".level");
-    level.style.height = nivel + "%";
+    level.style.height = nivelF + "%";
 
     if(nivel>=30){
         level.style.backgroundColor = "rgb(2, 248, 30)";
@@ -70,6 +82,7 @@ function utilizarValor(valor, valor2){
         btnOkelement.style.color = "rgb(0,150,50)";
         tique.className = "bi bi-check-circle-fill text-success tique-verde";
         bordaCard.className = "card card-sm border-success";
+        btnSolicitaBotj.style.visibility = "hidden";
     }
     else if((nivel>10)&&(nivel<30)){
         level.style.backgroundColor = "rgb(255, 200, 0)";
@@ -77,6 +90,7 @@ function utilizarValor(valor, valor2){
         btnOkelement.style.color = "rgb(255,200,0)";
         tique.className = "bi bi-exclamation-triangle text-warning";
         bordaCard.className = "card card-sm border-warning";
+        btnSolicitaBotj.style.visibility = "hidden";
     }
     else if((nivel<=10)&&(nivel>=0)){
         level.style.backgroundColor = "rgb(255, 30, 0)";
@@ -227,7 +241,7 @@ option = {
           }
         ])
       },
-      data: dados,
+      data: dadosF,
     },
     
     /*
